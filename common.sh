@@ -1,4 +1,14 @@
 #!/bin/bash
+function infoMsg()
+{
+    echo -e "\033[33m[INFO]$1\033[0m" # yellow
+}
+
+function warningMsg()
+{
+    echo -e "\033[35m[WARNING]$1\033[0m" # purple
+}
+
 function errorMsg()
 {
     echo -e "\033[31m[ERROR]$1\033[0m" # red
@@ -9,10 +19,6 @@ function promptMsg()
     echo -e "\033[32m$1\033[0m" # green 
 }
 
-function infoMsg()
-{
-    echo -e "\033[33m[INFO]$1\033[0m" # yellow
-}
 
 #http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
 function commandExists()
