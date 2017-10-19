@@ -89,6 +89,8 @@ function checkProcess()
 {
     local user=$1
     local fullname=$2
-    [ "$1" = "" ] && return 0
-    [ `pgrep -f $fullname -u $user` ] && return 1 || return 0
+    if [ "$user" == "" ] || [ "$fullname" == "" ]; then
+        return 1
+    fi
+    [ `pgrep -u "$user" -f "$fullname"` ] && return 0 || return 1
 }
