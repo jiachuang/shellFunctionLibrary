@@ -83,3 +83,12 @@ function isNaturalNumber()
         return 0    # is a number
     fi
 }
+
+#https://stackoverflow.com/questions/7708715/check-if-program-is-running-with-bash-shell-script
+function checkProcess()
+{
+    local user=$1
+    local fullname=$2
+    [ "$1" = "" ] && return 0
+    [ `pgrep -f $fullname -u $user` ] && return 1 || return 0
+}
